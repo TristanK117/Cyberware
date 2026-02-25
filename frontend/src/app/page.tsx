@@ -8,8 +8,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const sendMessage = async () => {
-    if (!message.trim()) return;
-
     setLoading(true);
     setResponse("");
 
@@ -22,50 +20,35 @@ export default function Home() {
         body: JSON.stringify({ message }),
       });
 
-      if (!res.ok) {
-        throw new Error("Request failed");
-      }
-
       const data = await res.json();
       setResponse(data.response);
     } catch (error) {
-      console.error(error);
-      setResponse("Error connecting to backend.");
-    } finally {
-      setLoading(false);
+      setResponse("Error connecting to backend");
     }
+
+    setLoading(false);
   };
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-      <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-lg">
-        <h1 className="text-2xl font-bold mb-4 text-center">
-          Cyberware Chat
-        </h1>
+    <div style={{ padding: "2rem" }}>
+      <h1>Cyberware Chat</h1>
 
-        <textarea
-          className="w-full border rounded-md p-2 mb-4 text-black"
-          rows={4}
-          placeholder="Ask a cybersecurity question..."
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
+      <input
+        type="text"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        placeholder="Type a message..."
+        style={{ marginRight: "1rem", padding: "0.5rem" }}
+      />
 
-        <button
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md disabled:opacity-50"
-          onClick={sendMessage}
-          disabled={loading}
-        >
-          {loading ? "Sending..." : "Send"}
-        </button>
+      <button onClick={sendMessage} disabled={loading}>
+        {loading ? "Sending..." : "Send"}
+      </button>
 
-        {response && (
-          <div className="mt-6 p-4 border rounded-md bg-gray-50">
-            <strong>Response:</strong>
-            <p className="mt-2">{response}</p>
-          </div>
-        )}
+      <div style={{ marginTop: "2rem" }}>
+        <strong>Response:</strong>
+        <p>{response}</p>
       </div>
-    </main>
+    </div>
   );
 }
