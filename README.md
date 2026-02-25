@@ -1,13 +1,13 @@
-# Cyberware
+# CyberAware
 
-Cyberware is a multi-service full-stack application designed to support cybersecurity education, awareness, and safe digital practices. The system is composed of a frontend client, backend API, supporting infrastructure, and a machine learning service. This repository is structured to support collaborative development, local testing, and containerized deployment.
+CyberAware is a multi-service full-stack application designed to support cybersecurity education, awareness, and safe digital practices. The system is composed of a frontend client, backend API, supporting infrastructure, and a machine learning service. This repository is structured to support collaborative development, local testing, and containerized deployment.
 
 ---
 
 ## Repository Structure
 
 ```
-Cyberware/
+CyberAware/
 ├── backend/              # API server and business logic
 ├── frontend/             # Web client application
 ├── ml-service/           # Machine learning microservice
@@ -45,8 +45,8 @@ docker --version
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/TristanK117/Cyberware.git
-cd Cyberware
+git clone https://github.com/TristanK117/CyberAware.git
+cd CyberAware
 ```
 
 ---
@@ -64,7 +64,7 @@ Example backend `.env`:
 
 ```env
 PORT=8000
-DATABASE_URL=postgres://user:password@localhost:5432/cyberware
+DATABASE_URL=postgres://user:password@localhost:5432/CyberAware
 SECRET_KEY=your_secret_key
 ```
 
