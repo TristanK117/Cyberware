@@ -1,12 +1,19 @@
-# Python
+# Virtual environments
 venv/
+**/venv/
+env/
+**/env/
+
+# Python caches
 __pycache__/
 *.pyc
-.env
 
-# Node
+# Node stuff
 node_modules/
 .next/
 
-# OS
+# Environment files
+.env
+
+# OS files
 .DS_Store
