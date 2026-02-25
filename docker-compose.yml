@@ -1,11 +1,11 @@
 services:
   db:
     image: postgres:15
-    container_name: cyberware-db
+    container_name: CyberAware-db
     environment:
       POSTGRES_USER: cyber
       POSTGRES_PASSWORD: cyber
-      POSTGRES_DB: cyberware
+      POSTGRES_DB: CyberAware
     ports:
       - "5432:5432"
     volumes:
