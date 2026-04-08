@@ -1,0 +1,149 @@
+{
+    "moduleId": "potential-phishing-scams",
+    "moduleTitle": "Potential Phishing Scams",
+    "category": "cybersecurity-awareness",
+    "screens": [
+      {
+        "id": "title-screen",
+        "type": "title",
+        "title": "The Impact of One Click",
+        "subtitle": "Phishing scams can appear in emails, messages, and job platforms. They’re designed to look real and will often rely on urgency and trust.",
+        "agenda": [
+          "Practice spotting red flags",
+          "Choose safe responses"
+        ]
+      },
+      {
+        "id": "context-screen",
+        "type": "context",
+        "context": "You are a new hire at EY who has just been onboarded onto the team. You receive an URGENT email from someone who’s claiming to be part of the HR team."
+      },
+      {
+        "id": "viewing-decision-screen",
+        "type": "decision",
+        "interactiveImage": {
+          "enabled": true,
+          "imageAlt": "Mock-up of a suspicious HR email in a workplace inbox"
+        },
+        "question": "What is the best course of action?",
+        "options": [
+          {
+            "id": "ignore-message",
+            "label": "Ignore the message completely"
+          },
+          {
+            "id": "click-link",
+            "label": "Click on the link to verify if this is a phishing scam or not"
+          },
+          {
+            "id": "hover-alert-management",
+            "label": "Hover over the link to see the URL attached and alert management",
+            "isCorrect": true
+          },
+          {
+            "id": "reply-to-sender",
+            "label": "Send them an email back to start a conversation about the issue"
+          }
+        ]
+      },
+      {
+        "id": "explanation-screen",
+        "type": "feedback",
+        "explanations": [
+          {
+            "optionId": "ignore-message",
+            "title": "Ignore the message completely",
+            "description": "Ignoring the message would still allow scammer to continuing disrupting others. Security teams want these types of emails reported."
+          },
+          {
+            "optionId": "click-link",
+            "title": "Click on the link to verify if this is a phishing scam or not",
+            "description": "Clicking a suspicious link can verify interaction and trigger malware damages (depending on the hacker)."
+          },
+          {
+            "optionId": "hover-alert-management",
+            "title": "Hover over the link to see the URL attached and alert management",
+            "description": "Hovering allows you to inspect the link without click and alerting IT if you are suspicious would allow action to be taken.",
+            "isCorrect": true
+          },
+          {
+            "optionId": "reply-to-sender",
+            "title": "Send them an email back to start a conversation about the issue",
+            "description": "Sending them an email back confirms to the scammer that your email is active."
+          }
+        ]
+      },
+      {
+        "id": "debriefing-screen",
+        "type": "interactive-debrief",
+        "title": "Common Patterns to Identify Phishing",
+        "interactiveImage": {
+          "enabled": true,
+          "imageAlt": "Clickable mock-up email with suspicious elements"
+        },
+        "instructions": "As you click through suspicious parts of the email, explanations will appear describing why each part is suspicious.",
+        "interactionStyle": {
+          "highlightColor": "red",
+          "showSideExplanation": true
+        },
+        "clickableElements": [
+          {
+            "id": "sender-address",
+            "label": "Sender address",
+            "explanation": "The sender may appear to come from HR, but the email address or domain may be slightly altered."
+          },
+          {
+            "id": "urgent-language",
+            "label": "Urgent wording",
+            "explanation": "Phishing scams often use urgency to pressure you into acting quickly without verifying the request."
+          },
+          {
+            "id": "embedded-link",
+            "label": "Suspicious link",
+            "explanation": "Embedded links can lead to fake login pages or malicious websites designed to steal credentials."
+          },
+          {
+            "id": "unexpected-request",
+            "label": "Unexpected request",
+            "explanation": "Unexpected requests involving personal, payroll, or login information are a common phishing tactic."
+          }
+        ]
+      },
+      {
+        "id": "best-practices-screen",
+        "type": "best-practices",
+        "title": "What should you do next time?",
+        "cards": [
+          {
+            "id": "pause-before-acting",
+            "title": "Pause before acting",
+            "description": "Urgency is a tactic"
+          },
+          {
+            "id": "verify-official-channels",
+            "title": "Verify through official channels",
+            "description": "Don’t use embedded links"
+          },
+          {
+            "id": "report-suspicious-messages",
+            "title": "Report suspicious messages",
+            "description": "Protect your team"
+          }
+        ]
+      },
+      {
+        "id": "reflection-screen",
+        "type": "reflection",
+        "successImage": {
+          "enabled": true,
+          "imageAlt": "Success or completion illustration"
+        },
+        "title": "Module Complete",
+        "reflection": "Congrats on completing your interactive module!",
+        "takeaways": [
+          "How to identify suspicious messages",
+          "Actions you should take against potential phishing scams"
+        ]
+      }
+    ]
+  }
