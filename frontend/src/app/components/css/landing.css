@@ -1,0 +1,218 @@
+.landing_body{
+    align-items: center;
+    text-align: center;
+}
+
+/* Top header */
+
+.landing_header h2 {
+    display: inline-block;
+    color: #FFF;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 30px;
+    border: 1px solid #19686E;
+    background: #102641;
+    padding: 4px 8px;
+}
+
+.landing_header {
+    text-align: center;
+}
+
+.landing_header h1 {
+    color: #FFF;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+.landing_header b {
+    color: #62BDA0;
+}
+
+/* Chatbot on landing page */
+
+.landing_chat h1{
+    color: #FFF;
+    font-family: var(--font-raleway);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-top: 2rem;
+}
+
+.landing_textbox {
+    margin-top: 20px;
+    color: #FFF;
+    font-family: var(--font-raleway);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 20px;
+    border: 1px solid #19686E;
+    background: rgba(17, 42, 65, 0.80);
+    width: 695px;
+    height: 150px;
+    padding: 16px 18px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+/*Impact items section*/
+
+.impact_numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin: 50px;
+}
+
+.impact_item h2{
+    color: #62BDA0;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.impact_item p{
+    color: #FFF;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/*Feature intro and cards*/
+
+.feature_intro {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.feature_intro h2 {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: left;
+    margin-top: 100px;
+}
+
+.feature_intro h1 {
+    color: #62BDA0;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: left;
+    margin-bottom: 100px;
+}
+
+.feature_cards {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.card_item {
+    width: 100%;
+    max-width: 160px;
+    padding: 28px 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid #19686E;
+    background: #102641;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.card_item h3 {
+    color: #FFF;
+    font-family: var(--font-raleway);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.card_item p {
+    color: #FFF;
+    font-family: var(--font-raleway);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Final component on landing page */
+
+.landing_header .bottom_header {
+    margin-top: 30px;
+    color: #FFF;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+.landing_header p {
+    color: #FFF;
+    font-family: var(--font-raleway);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 30px;
+}
+
+.landing_buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.landing_buttons button {
+    border-radius: 18px;
+    color: #FFF;
+    font-family: var(--font-raleway);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 180px;
+    height: 50px;
+}
+
+.landing_buttons .b1{
+    background: #62BDA0;
+}
+
+.landing_buttons .b2{
+    border: 1px solid #19686E;
+    background: #102641;
+}

@@ -2,11 +2,14 @@
 
 .navbar {
     display: flex;
-    width: 1214px;
-    padding: 21px 17px;
     align-items: center;
-    gap: 100px;
-    font-family: var(--font-montserrat);
+    justify-content: space-between;
+    width: min(1214px, 100%);
+    margin: 0 auto;
+    padding: 21px 30px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .logo{
@@ -17,15 +20,15 @@
 
 .navbar .logo_words {
     margin: 0;
-    font-size: 48px;
+    font-size: 25px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
 
 .navbar .logo_icon {
-    width: 36px;
-    height: 35px;
+    width: 20px;
+    height: auto;
     color: #62BDA0;
 }
 
@@ -41,7 +44,7 @@
     flex-shrink: 0;
     color: #FFF;
     font-family: var(--font-raleway);
-    font-size: 18px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -52,8 +55,8 @@
 
 .login_button{
     display: flex;
-    width: 221.688px;
-    height: 50px;
+    width: 150px;
+    height: 40px;
     padding: 11px 17px 11px 19px;
     justify-content: center;
     align-items: center;
@@ -62,30 +65,31 @@
     border-radius: 25px;
     border: 1px solid #62BDA0;
     background: #1D3043;
+    font-size: 13px;
 }
 
 /*Footer*/
 
 .footer {
-    width: 1280px;
-    height: 171px;
-    padding: 50px;
     display: flex;
     align-items: center;
-    gap: 100px;
-    font-family: var(--font-montserrat);
+    justify-content: space-between;
+    width: min(1214px, 100%);
+    margin: 0 auto;
+    padding: 28px 46px;
+    box-sizing: border-box;
 }
 
 .footer .logo_words {
-    font-size: 30.934px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
 
 .footer .logo_icon {
-    width: 23.201px;
-    height: 22.556px;
+    width: 15px;
+    height: auto;
     color: #62BDA0;
 }
 
@@ -95,7 +99,7 @@
     gap: 48px;
     color: #FFF;
     font-family: var(--font-raleway);
-    font-size: 10px;
+    font-size: 9px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -103,7 +107,7 @@
 
 .footer p{
     color: #FFF;
-    font-size: 9px;
+    font-size: 8px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;

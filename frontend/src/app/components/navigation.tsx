@@ -37,33 +37,33 @@ function Logo() {
 };
   
 
-  export function Navbar() {
-      return(
-          <nav className="navbar">
-              <Logo/>
-              <div className="navigation">
-                  <a href="#">Modules</a>
-                  <a href="#">Chatbot</a>
-                  <a href="#">About</a>
-              </div>
-              <button className="login_button">
-                  Login / Sign-up
-              </button>
-          </nav>
-      );
-  };
+export function Navbar() {
+    return(
+        <nav className="navbar">
+            <Logo/>
+            <div className="navigation">
+                <a href="#">Modules</a>
+                <a href="#">Chatbot</a>
+                <a href="#">About</a>
+            </div>
+            <button className="login_button">
+                Login / Sign-up
+            </button>
+        </nav>
+    );
+};
 
-  export function Footer() {
-      return(
-        <footer className="footer">
-          <Logo/>
-          <div className="navigation">
-            <a href="#">About Us</a>
-            <a href="#">FAQs</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Contact</a>
-          </div>
-          <p>© 2026 CyberAware. All rights reserved.</p>
-        </footer>
-      )
-  }
+export function Footer() {
+    return(
+      <footer className="footer">
+        <Logo/>
+        <div className="navigation">
+          <a href="#">About Us</a>
+          <a href="#">FAQs</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Contact</a>
+        </div>
+        <p>© 2026 CyberAware. All rights reserved.</p>
+      </footer>
+    )
+}
