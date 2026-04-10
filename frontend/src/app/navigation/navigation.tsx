@@ -1,4 +1,5 @@
-import "./css/navigation.css";
+import "./navigation.css";
+import Link from "next/link";
 
 function LogoIcon() {
     return (
@@ -28,11 +29,11 @@ function LogoIcon() {
 
 function Logo() {
     return(
-        <div className="logo">
+        <Link className="logo" href="/">
             <h1 className="logo_words start">Cyber</h1>
             <LogoIcon/>
             <h1 className="logo_words end">ware</h1>
-        </div>
+        </Link>
     )
 };
   
@@ -42,13 +43,13 @@ export function Navbar() {
         <nav className="navbar">
             <Logo/>
             <div className="navigation">
-                <a href="#">Modules</a>
-                <a href="#">Chatbot</a>
-                <a href="#">About</a>
+              <Link className="page_nav" href="/modules">Modules</Link>
+              <Link className="page_nav" href="/chatbot">Chatbot</Link>
+              <Link className="page_nav" href="/about">About</Link>
             </div>
-            <button className="login_button">
-                Login / Sign-up
-            </button>
+            <Link href="/login" className="login_button">
+              Login / Sign-up
+            </Link>
         </nav>
     );
 };

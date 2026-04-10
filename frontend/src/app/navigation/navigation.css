@@ -60,11 +60,11 @@
     gap: 40px;
 }
 
-.navigation a {
+.navigation .page_nav {
     text-decoration: none;
 }
   
-.navigation a:hover {
+.navigation .page_nav:hover {
     cursor: pointer;
     text-decoration: underline;
     text-decoration-color: #62BDA0;
