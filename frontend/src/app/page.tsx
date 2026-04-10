@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import './components/css/landing.css'
+import './landing.css'
 
 function ShieldIcon() {
   return(

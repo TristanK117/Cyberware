@@ -15,8 +15,15 @@
 .logo{
     display: flex;
     align-items: center;
-    
+    transition: filter 0.25s ease, transform 0.25s ease;
 }
+
+.logo:hover {
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.218))
+            drop-shadow(0 0 12px rgba(255, 255, 255, 0.204));
+    transform: scale(1.04);
+    cursor: pointer;
+  }
 
 .navbar .logo_words {
     margin: 0;
@@ -53,6 +60,17 @@
     gap: 40px;
 }
 
+.navigation .page_nav {
+    text-decoration: none;
+}
+  
+.navigation .page_nav:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: #62BDA0;
+    text-underline-offset: 4px;
+}
+
 .login_button{
     display: flex;
     width: 150px;
@@ -66,6 +84,13 @@
     border: 1px solid #62BDA0;
     background: #1D3043;
     font-size: 13px;
+    transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+.login_button:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 /*Footer*/
