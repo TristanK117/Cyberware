@@ -1,4 +1,6 @@
+// import Link from "next/dist/client/link";
 import "./css/navigation.css";
+import Link from "next/link";
 
 function LogoIcon() {
     return (
@@ -46,9 +48,9 @@ export function Navbar() {
                 <a href="#">Chatbot</a>
                 <a href="#">About</a>
             </div>
-            <button className="login_button">
-                Login / Sign-up
-            </button>
+            <Link href="/login" className="login_button">
+              Login / Sign-up
+            </Link>
         </nav>
     );
 };
