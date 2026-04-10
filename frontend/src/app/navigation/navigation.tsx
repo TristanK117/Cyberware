@@ -1,5 +1,6 @@
-import "./navigation.css";
+
 import Link from "next/link";
+import "./navigation.css";
 
 function LogoIcon() {
     return (
