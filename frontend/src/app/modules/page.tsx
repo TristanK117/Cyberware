@@ -1,4 +1,5 @@
 import "./modules.css"
+import modules from "../../../module_details/landing_details.json";
 
 /*Welcome message should specify the user's name */
 /*Code in course completion based on number of trainings*/
@@ -31,6 +32,7 @@ function GreenDotIcon(){
 
 export default function Modules() {
     const progress = 54;
+    const currentModule = modules[0];
     return(
         <div className="modules">
             <div className="modules_header">
@@ -47,7 +49,14 @@ export default function Modules() {
             <div className="quick_process">
                 <h2 className="quick_process_intro">Module Quick Continue Progress <GreenDotIcon/></h2>
                 <div className="training_in_progress">
-                    <h1><PhishingIcon/> Potential Phishing Scams (EX)</h1>
+                    <h1>
+                        <img
+                        src={currentModule.icon}
+                        alt={currentModule.title}
+                        className="module_icon"
+                        />
+                        {currentModule.title}
+                    </h1>
                     <button>Resume →</button>
                 </div>
                 <div className="progress_tracker">
@@ -58,8 +67,24 @@ export default function Modules() {
                 </div>
             </div>
 
-            <div>
+            <div className="cont_required_training">
                 <h1>Continue Required Training → </h1>
+                <div className="module_cards">
+                    {modules.map((module) => (
+                        <div className="module_card" key={module.id}>
+                        <div className="module_badge status">REQUIRED</div>
+
+                        <img
+                            src={module.icon}
+                            alt={module.title}
+                            className="module_card_icon"
+                        />
+
+                        <h2>{module.title}</h2>
+                        <p>{module.description}</p>
+                        </div>
+                    ))}
+                    </div>
             </div>
         </div>
     )
