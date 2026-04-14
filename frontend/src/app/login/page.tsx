@@ -1,11 +1,8 @@
-import "../components/css/login.css";
+import "./login.css";
 
 export default function LoginPage() {
   return (
     <main className="login-page">
-      <div className="brand">
-        Cyber<span>Aware</span>
-      </div>
 
       <section className="login-card">
         <h1>Login to your account</h1>
