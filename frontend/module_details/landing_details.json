@@ -1,0 +1,14 @@
+[
+    {
+      "id": 1,
+      "title": "Potential Phishing Scams",
+      "icon": "https://img.icons8.com/?size=100&id=GUKg8L0_GkKJ&format=png&color=000000",
+      "description": "Learn how to spot suspicious emails, fake links, and urgent messages designed to steal your information."
+    },
+    {
+      "id": 2,
+      "title": "Password Security Best Practices",
+      "icon": "https://img.icons8.com/?size=100&id=51611&format=png&color=000000",
+      "description": "Build stronger password habits by learning how to create secure passwords and protect your accounts from attackers."
+    }
+  ]

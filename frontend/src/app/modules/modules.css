@@ -1,0 +1,232 @@
+/*Modules Dashboard Introduction*/
+
+.modules_header {
+    padding: 7.5%;
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard_introduction h2{
+    align-self: stretch;
+    color: #FFF;
+    font-family: var(--font-raleway);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+.dashboard_introduction h1{
+    color: #FFF;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.dashboard_introduction h1 b {
+    color: #62BDA0;
+    font-weight: 700; 
+}
+
+.course_completion_count {
+    border-radius: 18.669px;
+    border: 0.933px solid #62BDA0;
+    background: #1D3043;
+    padding: 10px 30px;
+}
+
+.course_completion_count h3{
+    color: #FF9D00;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.course_completion_count h2{
+    color: #FFF;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+/*Dashboard Quick Process*/
+
+.quick_process{
+    border-radius: 40.674px;
+    border: 2.034px solid #62BDA0;
+    background: #102641;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3% 7%;
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.quick_process .quick_process_intro {
+    border-radius: 30px;
+    border: 1px solid #19686E;
+    background: #1D3043;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    padding: 3px 50px;
+    width: fit-content;
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-style: light;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.quick_process img {
+    width: 50px;
+    height: auto;
+}
+
+.training_in_progress {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    margin: 10% 0px;
+}
+
+.training_in_progress h1 {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    color: #FFF;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    gap: 15px;
+}
+
+.training_in_progress button {
+    color: #FFF;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.training_in_progress button:hover{
+    cursor: pointer;
+}
+
+.progress_tracker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+}
+
+.progress_bar {
+    width: 100%;
+    max-width: 500px;
+    height: 10px;
+    background: #2A5A6B;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress_fill {
+    width: 54%;
+    height: 100%;
+    background: #6FD1B3;
+    border-radius: 999px;
+}
+
+.progress_tracker h2 {
+    margin: 0;
+    color: #62BDA0;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.cont_required_training h1{
+    color: #FFF;
+    font-family: var(--font-raleway);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 50px
+}
+
+.module_cards {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  
+  .module_card {
+    position: relative;
+    width: 380px;
+    min-height: 80px;
+    padding: 24px 24px 20px 24px;
+    border-radius: 18.669px;
+    border: 0.933px solid #62BDA0;
+    background: #102641;
+  }
+  
+  .module_badge {
+    position: absolute;
+    top: 20px;
+    right: 28px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  
+  .module_badge.status {
+    border-radius: 9.913px;
+    background: #613636;
+    color: #F30;
+    padding: 0px 30px;
+    font-size: 12px;
+  }
+  
+  .module_card_icon {
+    width: 75px;
+    height: auto;
+    display: block;
+    margin: 25px auto 35px auto;
+    object-fit: contain;
+  }
+  
+  .module_card h2 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 14px 0;
+  }
+  
+  .module_card p {
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.35;
+    margin: 0;
+    max-width: 90%;
+  }
+
