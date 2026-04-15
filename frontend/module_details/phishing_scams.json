@@ -6,12 +6,20 @@
       {
         "id": "title-screen",
         "type": "title",
-        "title": "The Impact of One Click",
-        "subtitle": "Phishing scams can appear in emails, messages, and job platforms. They’re designed to look real and will often rely on urgency and trust.",
+        "titleParts": {
+          "start": "Potential ",
+          "highlight": "Phishing Scams",
+          "middle": " - The Impact of ",
+          "accent": "One Click"
+        },
+        "subtitle": "You just received a suspicious email. You've been told to only send money to vetted partners. Learn what to watch for and how to protect yourself and your organization.",
         "agenda": [
-          "Practice spotting red flags",
-          "Choose safe responses"
-        ]
+          "Identify Phishing Flag Signs",
+          "Practice Secure Phishing Response",
+          "Phishing Reporting Best Practices",
+          "Understand the Consequences"
+        ],
+        "img": "/img/phishing_opening.png"
       },
       {
         "id": "context-screen",

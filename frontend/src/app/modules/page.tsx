@@ -1,5 +1,6 @@
-import "./modules.css"
+import "./modules_landing_page.css"
 import modules from "../../../module_details/landing_details.json";
+import Link from "next/link";
 
 /*Welcome message should specify the user's name */
 /*Code in course completion based on number of trainings*/
@@ -71,21 +72,28 @@ export default function Modules() {
                 <h1>Continue Required Training → </h1>
                 <div className="module_cards">
                     {modules.map((module) => (
-                        <div className="module_card" key={module.id}>
-                        <div className="module_badge status">REQUIRED</div>
+                        <Link
+                            href={module.route}
+                            key={module.id}
+                            className="module_card_link"
+                        >
+                            <div className="module_card">
+                                <div className="module_badge status">REQUIRED</div>
 
-                        <img
-                            src={module.icon}
-                            alt={module.title}
-                            className="module_card_icon"
-                        />
+                                <img
+                                    src={module.icon}
+                                    alt={module.title}
+                                    className="module_card_icon"
+                                />
 
-                        <h2>{module.title}</h2>
-                        <p>{module.description}</p>
-                        </div>
+                                <h2>{module.title}</h2>
+                                <p>{module.description}</p>
+                            </div>
+                        </Link>
                     ))}
-                    </div>
+                </div>
             </div>
         </div>
     )
 }
+
