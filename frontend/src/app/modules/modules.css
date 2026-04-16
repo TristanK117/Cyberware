@@ -373,7 +373,7 @@
     cursor: pointer;
 }
 
-/*Phishing MCQ Section (multiple choice questions)*/
+/*Phishing MCQ Section (multiple choice questions), LLMS for some design and JS stuff*/
   
   .mcq_content {
     max-width: 1200px;
@@ -453,7 +453,7 @@
     background: #243F59;
   }
 
-  /* wrong selected state */
+  /* MCQ wrong selected state */
 .mcq_option.wrong {
     background: #4b3d4d;
     border: 1px solid #ff5c5c;
@@ -464,7 +464,7 @@
     box-shadow: inset 0 0 0 4px #ff6b6b;
   }
   
-  /* correct selected state */
+  /* MCQ correct selected state */
   .mcq_option.correct {
     border: 1px solid #62bda0;
     background: #384346;;
