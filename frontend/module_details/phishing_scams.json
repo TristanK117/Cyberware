@@ -37,20 +37,27 @@
         "options": [
           {
             "id": "ignore-message",
-            "label": "Ignore the message completely"
+            "label": "Ignore the message completely",
+            "isCorrect": false,
+            "description": "Ignoring the message would still allow scammer to continuing disrupting others. Security teams want these types of emails reported. Select the correct answer to continue."
           },
           {
             "id": "click-link",
-            "label": "Click on the link to verify if this is a phishing scam or not"
+            "label": "Click on the link to verify if this is a phishing scam or not",
+            "isCorrect": false,
+            "description": "Interacting with the email in any way — even just clicking to check — puts you at risk. This can verify interaction and potentially trigger malware damages. Select the correct answer to continue."
           },
           {
             "id": "hover-alert-management",
             "label": "Hover over the link to see the URL attached and alert management",
-            "isCorrect": true
+            "isCorrect": true,
+            "description": "Hovering allows you to inspect the link without click and alerting IT if you are suspicious would allow action to be taken. Click next to proceed"
           },
           {
             "id": "reply-to-sender",
-            "label": "Send them an email back to start a conversation about the issue"
+            "label": "Send them an email back to start a conversation about the issue",
+            "isCorrect": false,
+            "description": "Sending them an email back confirms to the scammer that your email is active. Select the correct answer to continue."
           }
         ]
       },

@@ -2,7 +2,7 @@ import "../../modules.css"
 import phishingModule from "../../../../../module_details/phishing_scams.json";
 import Link from "next/link";
 
-function ModuleHeader(){
+export function ModuleHeader(){
     const titleScreen = phishingModule.screens.find(
         (screen) => screen.id === "title-screen"
       );
@@ -19,7 +19,7 @@ function ModuleHeader(){
     )
 }
 
-function PhishingEmailMockup() {
+export function PhishingEmailMockup() {
     return (
       <div className="phishing_email_card">
         <div className="phishing_email_topbar">
