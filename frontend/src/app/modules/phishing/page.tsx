@@ -1,5 +1,6 @@
 import "../modules.css"
 import phishingModule from "../../../../module_details/phishing_scams.json";
+import Link from "next/link";
 
 export default function PhishingPage() {
     const titleScreen = phishingModule.screens.find(
@@ -31,7 +32,9 @@ export default function PhishingPage() {
 
                 <div className="modules_image">
                     <img src={titleScreen.img} alt="opening page phishing image" />
-                    <button>Start Module</button>
+                    <Link href="/modules/phishing/context" className="button">
+                        Start Module
+                    </Link>
                 </div>
             </div>
 

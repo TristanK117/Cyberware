@@ -24,7 +24,7 @@
       {
         "id": "context-screen",
         "type": "context",
-        "context": "You are a new hire at EY who has just been onboarded onto the team. You receive an URGENT email from someone who’s claiming to be part of the HR team."
+        "context": "You are a new hire at EY who has just been onboarded onto the team. You receive an URGENT email from someone who’s claiming to be part of a financial team."
       },
       {
         "id": "viewing-decision-screen",
