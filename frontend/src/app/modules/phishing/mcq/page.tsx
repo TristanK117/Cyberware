@@ -1,29 +1,46 @@
 "use client";
-import { PhishingEmailMockup, ModuleHeader } from '../context/page'
-import phishingModule from "../../../../../module_details/phishing_scams.json";
-import "../../modules.css"
 import { useState } from "react";
+import { PhishingEmailMockup, ModuleHeader } from "../context/page";
+import phishingModule from "../../../../../module_details/phishing_scams.json";
+import "../../modules.css";
+import Link from "next/link"
 
 export default function PhishingMCQ() {
   const mcqScreen = phishingModule.screens.find(
     (screen) => screen.id === "viewing-decision-screen"
   );
 
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  if (!mcqScreen || mcqScreen.type !== "decision") {
+  if (!mcqScreen || mcqScreen.type !== "decision" || !mcqScreen.questions) {
     return <div>MCQ screen not found.</div>;
   }
 
+  const questions = mcqScreen.questions;
+  const currentQuestion = questions[currentQuestionIndex];
+
+  const selectedOption =
+    currentQuestion.options.find((option) => option.id === selectedId) || null;
+
+  const canGoNext = selectedOption?.isCorrect === true;
+
+  function handleNext() {
+    if (!canGoNext) return;
+
+    const isLastQuestion = currentQuestionIndex === questions.length - 1;
+
+    if (!isLastQuestion) {
+      setCurrentQuestionIndex((prev) => prev + 1);
+      setSelectedId(null);
+    } else {
+      console.log("Go to next screen");
+    }
+  }
 
   const currentStep = 3;
   const totalSteps = 8;
   const progressPercent = (currentStep / totalSteps) * 100;
-
-  const selectedOption =
-    mcqScreen.options.find((option) => option.id === selectedId) || null;
-
-    const canGoNext = selectedOption?.isCorrect === true;
 
   return (
     <div className="mcq_page">
@@ -34,14 +51,16 @@ export default function PhishingMCQ() {
 
         <div className="mcq_right">
           <div className="mcq_question">
-            <h2>Question 1 of 3</h2>
+            <h2>
+              Question {currentQuestionIndex + 1} of {questions.length}
+            </h2>
             <h1>
-              What is the <b>BEST</b> course of action?
+              {currentQuestion.question}
             </h1>
           </div>
 
           <div className="mcq_options">
-            {mcqScreen.options.map((option) => {
+            {currentQuestion.options.map((option) => {
               const isSelected = selectedId === option.id;
               const isWrongSelected = isSelected && !option.isCorrect;
               const isCorrectSelected = isSelected && option.isCorrect;
@@ -59,7 +78,7 @@ export default function PhishingMCQ() {
                 >
                   <input
                     type="radio"
-                    name="phishing-question"
+                    name={`phishing-question-${currentQuestion.id}`}
                     value={option.id}
                     checked={isSelected}
                     onChange={() => setSelectedId(option.id)}
@@ -81,22 +100,37 @@ export default function PhishingMCQ() {
             </div>
           )}
 
-            <div className="mcq_next_button_wrapper">
-            <button className="mcq_next_button" disabled={!canGoNext}>
+          <div className="mcq_next_button_wrapper">
+            {currentQuestionIndex === questions.length - 1 ? (
+              <Link href="/modules/phishing/interactive-debrief">
+                <button className="mcq_next_button" disabled={!canGoNext}>
+                  Next Section
+                </button>
+              </Link>
+            ) : (
+              <button
+                className="mcq_next_button"
+                disabled={!canGoNext}
+                onClick={handleNext}
+              >
                 Next
-            </button>
-            </div>
+              </button>
+            )}
+          </div>
         </div>
       </div>
+
       <div className="module_progress_footer">
-                <div className="module_progress_bar">
-                <div
-                    className="module_progress_fill"
-                    style={{ width: `${progressPercent}%` }}
-                ></div>
-                </div>
-                <span>{currentStep}/{totalSteps}</span>
+        <div className="module_progress_bar">
+          <div
+            className="module_progress_fill"
+            style={{ width: `${progressPercent}%` }}
+          ></div>
         </div>
+        <span>
+          {currentStep}/{totalSteps}
+        </span>
+      </div>
     </div>
   );
 }

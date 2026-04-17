@@ -29,62 +29,100 @@
       {
         "id": "viewing-decision-screen",
         "type": "decision",
-        "interactiveImage": {
-          "enabled": true,
-          "imageAlt": "Mock-up of a suspicious HR email in a workplace inbox"
-        },
-        "question": "What is the best course of action?",
-        "options": [
+        "questions": [
           {
-            "id": "ignore-message",
-            "label": "Ignore the message completely",
-            "isCorrect": false,
-            "description": "Ignoring the message would still allow scammer to continuing disrupting others. Security teams want these types of emails reported. Select the correct answer to continue."
+            "id": "q1",
+            "question": "What is the best course of action?",
+            "interactiveImage": {
+              "enabled": true,
+              "imageAlt": "NOT QUITE: Mock-up of a suspicious HR email in a workplace inbox"
+            },
+            "options": [
+              {
+                "id": "ignore-message",
+                "label": "Ignore the message completely",
+                "isCorrect": false,
+                "description": "Ignoring the message would still allow scammer to continuing disrupting others. Security teams want these types of emails reported. Select the correct answer to continue."
+              },
+              {
+                "id": "click-link",
+                "label": "Click on the link to verify if this is a phishing scam or not",
+                "isCorrect": false,
+                "description": "NOT QUITE: Interacting with the email in any way — even just clicking to check — puts you at risk. This can verify interaction and potentially trigger malware damages. Select the correct answer to continue."
+              },
+              {
+                "id": "hover-alert-management",
+                "label": "Hover over the link to see the URL attached and alert management",
+                "isCorrect": true,
+                "description": "CORRECT: Hovering allows you to inspect the link without click and alerting IT if you are suspicious would allow action to be taken. Click next to proceed"
+              },
+              {
+                "id": "reply-to-sender",
+                "label": "Send them an email back to start a conversation about the issue",
+                "isCorrect": false,
+                "description": "NOT QUITE: Sending them an email back confirms to the scammer that your email is active. Select the correct answer to continue."
+              }
+            ]
           },
           {
-            "id": "click-link",
-            "label": "Click on the link to verify if this is a phishing scam or not",
-            "isCorrect": false,
-            "description": "Interacting with the email in any way — even just clicking to check — puts you at risk. This can verify interaction and potentially trigger malware damages. Select the correct answer to continue."
+            "id": "q2",
+            "question": "What should you do after identifying the email as suspicious?",
+            "options": [
+              {
+                "id": "report-it",
+                "label": "Report it through the proper channel",
+                "isCorrect": true,
+                "description": "CORRECT: Reporting helps protect your organization / workplace and allows security teams to respond."
+              },
+              {
+                "id": "ignore-it",
+                "label": "Leave it in your inbox and ignore it",
+                "isCorrect": false,
+                "description": "NOT QUITE: This leaves the attacker roaming at large, even if the message doesn't impact you, it could impact others in the future. Select the correct answer to continue."
+              },
+              {
+                "id": "forward-it",
+                "label": "Forward the email to a colleague to show them",
+                "isCorrect": false,
+                "description": "NOT QUITE: This spreads the threat of the phishing email. Unless told specifically by a proper channel, you shouldn't forward the email to anyone. Select the correct answer to continue."
+              },
+              {
+                "id": "click-it",
+                "label": "Click on the links or attachments to confirm your suspicion",
+                "isCorrect": false,
+                "description": "NOT QUITE: Clicking on links could lead your to 'spoofed' websites (websites designed to look normal but steal your credentials). Select the correct answer to continue."
+              }
+            ]
           },
           {
-            "id": "hover-alert-management",
-            "label": "Hover over the link to see the URL attached and alert management",
-            "isCorrect": true,
-            "description": "Hovering allows you to inspect the link without click and alerting IT if you are suspicious would allow action to be taken. Click next to proceed"
-          },
-          {
-            "id": "reply-to-sender",
-            "label": "Send them an email back to start a conversation about the issue",
-            "isCorrect": false,
-            "description": "Sending them an email back confirms to the scammer that your email is active. Select the correct answer to continue."
-          }
-        ]
-      },
-      {
-        "id": "explanation-screen",
-        "type": "feedback",
-        "explanations": [
-          {
-            "optionId": "ignore-message",
-            "title": "Ignore the message completely",
-            "description": "Ignoring the message would still allow scammer to continuing disrupting others. Security teams want these types of emails reported."
-          },
-          {
-            "optionId": "click-link",
-            "title": "Click on the link to verify if this is a phishing scam or not",
-            "description": "Clicking a suspicious link can verify interaction and trigger malware damages (depending on the hacker)."
-          },
-          {
-            "optionId": "hover-alert-management",
-            "title": "Hover over the link to see the URL attached and alert management",
-            "description": "Hovering allows you to inspect the link without click and alerting IT if you are suspicious would allow action to be taken.",
-            "isCorrect": true
-          },
-          {
-            "optionId": "reply-to-sender",
-            "title": "Send them an email back to start a conversation about the issue",
-            "description": "Sending them an email back confirms to the scammer that your email is active."
+            "id": "q3",
+            "question": "Who should this message be reported to?",
+            "options": [
+              {
+                "id": "email-client-report",
+                "label": "The email client (via the 'report phishing' or 'report spam' button)",
+                "isCorrect": true,
+                "description": "CORRECT: This will report the threat directly to the email service who will take action accordingly."
+              },
+              {
+                "id": "no-one-report",
+                "label": "No one, just delete the email",
+                "isCorrect": false,
+                "description": "NOT QUITE: This leaves the attacker roaming at large, even if the message doesn't impact you, it could impact others in the future. Select the correct answer to continue."
+              },
+              {
+                "id": "sender-report",
+                "label": "Reported back to the sender",
+                "isCorrect": false,
+                "description": "NOT QUITE: This confirms that your email is active to the sender and you're someone willing to engage. Select the correct answer to continue."
+              },
+              {
+                "id": "it-hr-report",
+                "label": "Your company's IT or HR department.",
+                "isCorrect": true,
+                "description": "CORRECT: Letting your company's security team know immediately will allow your company to log the threat and prevent the threat in the future."
+              }
+            ]
           }
         ]
       },

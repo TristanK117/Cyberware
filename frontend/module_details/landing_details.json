@@ -10,7 +10,7 @@
       "id": 2,
       "title": "Password Security Best Practices",
       "icon": "https://img.icons8.com/?size=100&id=51611&format=png&color=000000",
-      "description": "Build stronger password habits by learning how to create secure passwords and protect your accounts from attackers.",
+      "description": "Build stronger password habits by learning how to create secure passwords to protect you from attackers.",
       "route": "/modules/password"
     }
   ]
