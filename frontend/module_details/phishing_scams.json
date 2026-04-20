@@ -141,24 +141,24 @@
         },
         "clickableElements": [
           {
-            "id": "sender-address",
-            "label": "Sender address",
-            "explanation": "The sender may appear to come from HR, but the email address or domain may be slightly altered."
+            "id": "sus-sender-address",
+            "label": "Suspicious sender domain",
+            "explanation": "'financialservices-secure.net' mimics legitimate domains — always verify the exact address."
           },
           {
             "id": "urgent-language",
-            "label": "Urgent wording",
-            "explanation": "Phishing scams often use urgency to pressure you into acting quickly without verifying the request."
+            "label": "Urgency & pressure tactics",
+            "explanation": "'24 hours' deadlines create panic. Legitimate services rarely use such extreme urgency."
           },
           {
             "id": "embedded-link",
-            "label": "Suspicious link",
-            "explanation": "Embedded links can lead to fake login pages or malicious websites designed to steal credentials."
+            "label": "Suspicious link URL",
+            "explanation": "The link domain doesn't match any known financial service. Hover before you click."
           },
           {
             "id": "unexpected-request",
-            "label": "Unexpected request",
-            "explanation": "Unexpected requests involving personal, payroll, or login information are a common phishing tactic."
+            "label": "Unsolicited credential request",
+            "explanation": "Real institutions don't ask for account details via email links."
           }
         ]
       },
