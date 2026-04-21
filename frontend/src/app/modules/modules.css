@@ -530,3 +530,175 @@
   .mcq_next_button:not(:disabled):hover {
     transform: translateY(-1px);
   }
+
+/* Interactive Debriefing Screen */
+
+.debrief_body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  box-sizing: border-box;
+}
+
+.debrief_body_text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.debrief_body_text .title {
+  color: #FFF;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.debrief_body_text .subtitle {
+  color: #C7C7C7;
+  font-size: 13px;
+  font-weight: 600;
+  max-width: 500px;
+  margin-bottom: 25px;
+}
+
+.debrief_cards {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 520px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: 1px solid #62BDA0;
+  background: #102641;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.debrief_cards .number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: #62BDA0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 50%;
+  border: 1px solid #62BDA0;
+  background: #21364B;
+  padding: 10px;
+}
+
+.debrief_cards .debrief_header {
+  margin: 0;
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 700; 
+}
+
+.debrief_card_context .debrief_card_body{
+  margin: 0;
+  color: #FFF;
+  font-size: 9px;
+  font-weight: 400;
+}
+
+.clickable_clue {
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+
+.clickable_clue.active {
+  border-color: #ff3b3b;
+  background: rgba(255, 59, 59, 0.08);
+}
+
+.debrief_next_button_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  max-width: 520px;
+}
+
+.debrief_next_button {
+  margin-top: 20px;
+  max-width: 200px;
+  padding: 12px 60px;
+  border: none;
+  border-radius: 18px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font-raleway);
+  color: white;
+  background: #62bda0;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Best Practice Screen */
+
+.best_practices_body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.best_practices_title {
+  color: #FFF;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.best_practices_cards {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 520px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: 1px solid #62BDA0;
+  background: #102641;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.best_practices_cards .number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: #62BDA0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 50%;
+  border: 1px solid #62BDA0;
+  background: #21364B;
+  padding: 10px;
+}
+
+.best_practices_cards .card_header {
+  margin: 0;
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 700; 
+}
+
+.best_practices_cards .card_body{
+  margin: 0;
+  color: #FFF;
+  font-size: 9px;
+  font-weight: 400;
+}
+

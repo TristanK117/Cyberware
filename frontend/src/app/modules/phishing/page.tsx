@@ -7,7 +7,7 @@ export default function PhishingPage() {
         (screen) => screen.id === "title-screen"
       );
       const currentStep = 1;
-      const totalSteps = 8;
+      const totalSteps = 6;
       const progressPercent = (currentStep / totalSteps) * 100;
       return (
         <div>

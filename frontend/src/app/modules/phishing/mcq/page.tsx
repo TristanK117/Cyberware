@@ -39,7 +39,7 @@ export default function PhishingMCQ() {
   }
 
   const currentStep = 3;
-  const totalSteps = 8;
+  const totalSteps = 6;
   const progressPercent = (currentStep / totalSteps) * 100;
 
   return (

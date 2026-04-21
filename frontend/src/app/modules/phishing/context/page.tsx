@@ -74,7 +74,7 @@ export default function PhishingContext() {
         (screen) => screen.id === "context-screen"
       );
       const currentStep = 2;
-      const totalSteps = 8;
+      const totalSteps = 6;
       const progressPercent = (currentStep / totalSteps) * 100;
     return(
         <div>

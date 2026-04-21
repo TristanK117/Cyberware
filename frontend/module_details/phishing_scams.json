@@ -130,33 +130,29 @@
         "id": "debriefing-screen",
         "type": "interactive-debrief",
         "title": "Common Patterns to Identify Phishing",
-        "interactiveImage": {
-          "enabled": true,
-          "imageAlt": "Clickable mock-up email with suspicious elements"
-        },
-        "instructions": "As you click through suspicious parts of the email, explanations will appear describing why each part is suspicious.",
-        "interactionStyle": {
-          "highlightColor": "red",
-          "showSideExplanation": true
-        },
-        "clickableElements": [
+        "instructions": "Click through parts of the email displayed that seems suspicious to you.",
+        "cards": [
           {
             "id": "sus-sender-address",
+            "number": "1.",
             "label": "Suspicious sender domain",
             "explanation": "'financialservices-secure.net' mimics legitimate domains — always verify the exact address."
           },
           {
             "id": "urgent-language",
+            "number": "2.",
             "label": "Urgency & pressure tactics",
             "explanation": "'24 hours' deadlines create panic. Legitimate services rarely use such extreme urgency."
           },
           {
             "id": "embedded-link",
+            "number": "3.",
             "label": "Suspicious link URL",
             "explanation": "The link domain doesn't match any known financial service. Hover before you click."
           },
           {
             "id": "unexpected-request",
+            "number": "4.",
             "label": "Unsolicited credential request",
             "explanation": "Real institutions don't ask for account details via email links."
           }
@@ -165,22 +161,25 @@
       {
         "id": "best-practices-screen",
         "type": "best-practices",
-        "title": "What should you do next time?",
+        "title": "Congrats on completing your module! Remember to...",
         "cards": [
           {
             "id": "pause-before-acting",
+            "number":"1.",
             "title": "Pause before acting",
-            "description": "Urgency is a tactic"
+            "description": "Urgency is a tactic that phishing scammers use to get you to make rushed and uneducated decisons"
           },
           {
             "id": "verify-official-channels",
+            "number":"2.",
             "title": "Verify through official channels",
-            "description": "Don’t use embedded links"
+            "description": "Don’t use embedded links! These links can lead to spoofed websites that steal your information"
           },
           {
             "id": "report-suspicious-messages",
+            "number":"3.",
             "title": "Report suspicious messages",
-            "description": "Protect your team"
+            "description": "Protect your team. By reporting the issue to IT or HR, you are giving your team an outlet to investigate the situation and scammer."
           }
         ]
       },
