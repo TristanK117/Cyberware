@@ -96,7 +96,7 @@ python -m venv venv
 source venv/bin/activate  # Mac/Linux
 venv\Scripts\activate     # Windows
 pip install -r requirements.txt
-python app.py
+uvicorn main:app --reload
 ```
 
 Backend should run on the configured port (e.g., http://localhost:8000).
