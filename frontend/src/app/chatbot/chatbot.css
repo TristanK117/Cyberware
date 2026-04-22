@@ -1,0 +1,91 @@
+:root {
+  --bg-main: #112A41;
+  --bg-card: #0A1940;
+  --border-card: #12637a;
+  --accent: #5bcfbd;
+  --text-secondary: #d6dbe6;
+  --new-chat-bg: #1b3d5d;
+  --input-ring: #154b72;
+}
+
+.chat-page {
+  background-color: var(--bg-main);
+}
+
+.chat-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+}
+
+.chat-input-box {
+  background-color: var(--bg-card);
+  box-shadow: 0 0 0 1px var(--input-ring);
+}
+
+.chat-button {
+  background-color: var(--accent);
+}
+
+.chat-secondary-text {
+  color: var(--text-secondary);
+}
+
+.new-chat-button {
+  background-color: var(--new-chat-bg);
+}
+
+.chat-conversation {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.message-row {
+  display: flex;
+  width: 100%;
+}
+
+.user-row {
+  justify-content: flex-end;
+}
+
+.assistant-row {
+  justify-content: flex-start;
+}
+
+.message-group {
+  max-width: 72%;
+}
+
+.message-bubble {
+  padding: 14px 16px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.user-bubble {
+  background-color: #081b49;
+  color: white;
+}
+
+.assistant-bubble {
+  background-color: #23476e;
+  color: white;
+}
+
+.message-time {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.user-time {
+  text-align: right;
+}
+
+.assistant-time {
+  text-align: left;
+}
