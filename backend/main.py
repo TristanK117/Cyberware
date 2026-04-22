@@ -1,24 +1,29 @@
+import firebase_admin
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sqlalchemy import text
-from firebase_admin import credentials
-from firebase_admin import firestore
+from firebase_admin import credentials, firestore
 from datetime import datetime 
+import os
 
-try:
-    cred = credentials.Certificate('serviceAccountKey.json')
-    firebase_admin.initialize_app(cred)
-    print("Firebase Admin SDK initialized successfully with service account key.")
-except Exception as e:
-    print(f"Error initializing Firebase Admin SDK with service account: {e}")
-    print("Attempting to initialize with default credentials (e.g., for Cloud Functions, Cloud Run)...")
-    firebase_admin.initialize_app() # This works if deployed on Google Cloud
-    print("Firebase Admin SDK initialized successfully with default credentials.")
+# Initialize Firebase Admin SDK
+key_path = os.getenv("FIREBASE_KEY_PATH", "./serviceAccountKey.json")
+
+if not firebase_admin._apps:  # Prevent re-initialization on hot reload
+    try:
+        cred = credentials.Certificate(key_path)
+        firebase_admin.initialize_app(cred)
+        print("Firebase initialized with service account.")
+    except FileNotFoundError:
+        firebase_admin.initialize_app()
+        print("Firebase initialized with default credentials.")
 
 db = firestore.client()
+
 from app.database import engine
 from app.routes.chat import router as chat_router
+from app.routes.user import router as user_router
 # test
 app = FastAPI()
 
@@ -45,3 +50,4 @@ def db_test():
 
 # Include routes
 app.include_router(chat_router)
+app.include_router(user_router)

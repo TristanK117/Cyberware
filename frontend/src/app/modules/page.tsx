@@ -1,6 +1,11 @@
+"use client";
+
 import "./modules_landing_page.css"
 import modules from "../../../module_details/landing_details.json";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { auth } from "../firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 /*Welcome message should specify the user's name */
 /*Code in course completion based on number of trainings*/
@@ -34,12 +39,28 @@ function GreenDotIcon(){
 export default function Modules() {
     const progress = 54;
     const currentModule = modules[0];
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+            if (currentUser) {
+                try {
+                    const res = await fetch(`http://localhost:8000/users/${currentUser.uid}`);
+                    const json = await res.json();
+                    setUserData(json.data);
+                } catch (error) {
+                    console.error("Failed to fetch user data:", error);
+                }
+            }
+        });
+        return () => unsubscribe();
+    }, []);
     return(
         <div className="modules">
             <div className="modules_header">
                 <div className="dashboard_introduction">
                     <h2>Dashboard</h2>
-                    <h1>Welcome Back, <b>Chase</b>!</h1>
+                    <h1>Welcome Back, <b>{userData?.email ?? "..."}</b>!</h1>
                 </div>
                 <div className="course_completion_count">
                     <h3>1/2</h3>
