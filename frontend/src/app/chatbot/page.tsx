@@ -2,7 +2,8 @@
 
 import "./chatbot.css";
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState } from "react";
+
 
 type Message = {
   role: "user" | "assistant";
@@ -96,23 +97,31 @@ export default function Chatbot() {
     }
   };
 
+  const handleNewChat = () => {
+    setStarted(false);
+    setMessages([]);
+    setInput("");
+  };
+
   return (
+<div className="flex min-h-screen">
+  {/* Sidebar ONLY when chat has started */}
+  {started && (
+    <div className="sidebar flex flex-col justify-between p-4">
+      <div>
+        <button className="sidebar-btn" onClick={handleNewChat}>+</button>
+        <button className="sidebar-btn">🔍</button>
+      </div>
+    </div>
+  )}
+
+  {/* Main content */}
+  <div className="flex-1">
     <div className="chat-page min-h-screen text-white">
       <div className="mx-auto flex min-h-screen w-full max-w-[658px] flex-col px-6 pt-7">
         <div className="mb-12 flex items-start justify-between">
           <div className="text-[31px] font-bold leading-none tracking-[-0.02em]">
           </div>
-
-          <button
-            className="new-chat-button rounded-[14px] px-8 py-3 text-[14px] font-medium text-white shadow-sm"
-            onClick={() => {
-              setStarted(false);
-              setMessages([]);
-              setInput("");
-            }}
-          >
-            New Chat
-          </button>
         </div>
 
         <div className="flex flex-1 flex-col items-center">
@@ -248,6 +257,8 @@ export default function Chatbot() {
         
         </div>
       </div>
+    </div>
+    </div>
     </div>
   );
 }

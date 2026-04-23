@@ -89,3 +89,28 @@
 .assistant-time {
   text-align: left;
 }
+
+.sidebar {
+  width: 72px;
+  background-color: #21364B; /* your color */
+  border-right: none;
+}
+
+.sidebar-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: transparent;
+  color: white; /* icons white */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  transition: background 0.2s;
+  outline: none;        
+  border: none;  
+}
+
+.sidebar-btn:hover {
+  background-color: #2b4a66;
+}
