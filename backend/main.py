@@ -1,3 +1,4 @@
+import firebase_admin
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
@@ -5,6 +6,7 @@ from datetime import datetime
 
 from app.database import engine
 from app.routes.chat import router as chat_router
+from app.routes.user import router as user_router
 
 # ------------------ Firebase (SAFE INIT) ------------------
 db = None
@@ -62,5 +64,6 @@ def db_test():
         conn.execute(text("SELECT 1"))
     return {"db": "connected"}
 
-# ------------------ Include Chat ------------------
+# Include routes
 app.include_router(chat_router)
+app.include_router(user_router)

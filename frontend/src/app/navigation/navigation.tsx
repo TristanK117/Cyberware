@@ -1,5 +1,9 @@
-
+"use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { auth } from "../firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import "./navigation.css";
 
 function LogoIcon() {
@@ -40,6 +44,21 @@ function Logo() {
   
 
 export function Navbar() {
+  const [user, setUser] = useState(null);
+  const router = useRouter();
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+        return () => unsubscribe(); // cleanup on unmount
+    }, []);
+
+    const handleLogout = async () => {
+        await signOut(auth);
+        router.push("/");
+    };
+
     return(
         <nav className="navbar">
             <Logo/>
@@ -48,9 +67,15 @@ export function Navbar() {
               <Link className="page_nav" href="/chatbot">Chatbot</Link>
               <Link className="page_nav" href="/about">About</Link>
             </div>
-            <Link href="/login" className="login_button">
-              Login / Sign-up
-            </Link>
+            {user ? (
+                <button onClick={handleLogout} className="login_button">
+                    Logout
+                </button>
+            ) : (
+                <Link href="/login" className="login_button">
+                    Login / Sign-up
+                </Link>
+            )}
         </nav>
     );
 };
