@@ -3,6 +3,7 @@
 import "./chatbot.css";
 import Image from "next/image";
 import React, { useState } from "react";
+import { authenticatedFetch } from "../services/authService";
 
 
 type Message = {
@@ -60,11 +61,8 @@ export default function Chatbot() {
     setInput("");
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/chat", {
+      const res = await authenticatedFetch("http://127.0.0.1:8000/chat", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify({ message: userText }),
       });
 

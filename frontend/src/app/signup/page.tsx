@@ -4,6 +4,7 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useRouter } from "next/navigation";
+import { authenticatedFetch } from "../services/authService";
 import "../login/login.css";
 
 export default function SignupPage() {
@@ -34,11 +35,10 @@ export default function SignupPage() {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
-        // Call backend to create profile
-        const res = await fetch("http://localhost:8000/users/create", {
+        // Call backend to create profile with ID token (not UID)
+        const res = await authenticatedFetch("http://localhost:8000/users/create", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ uid: user.uid, email: user.email })
+            body: JSON.stringify({ email: user.email })
         });
 
         router.push("/modules");
