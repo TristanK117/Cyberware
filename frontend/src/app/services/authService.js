@@ -11,7 +11,7 @@ export async function getIdToken() {
     throw new Error('User not authenticated');
   }
 
-  return await auth.currentUser.getIdToken(true);
+  return await auth.currentUser.getIdToken(false);
 }
 
 /**
