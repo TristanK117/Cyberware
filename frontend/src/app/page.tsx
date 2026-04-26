@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import './landing.css'
+import { authenticatedFetch } from "./services/authService";
 
 function ShieldIcon() {
   return(
@@ -43,11 +44,8 @@ export default function Home() {
     setResponse("");
 
     try {
-      const res = await fetch("http://localhost:8000/chat", {
+      const res = await authenticatedFetch("http://localhost:8000/chat", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify({ message }),
       });
 

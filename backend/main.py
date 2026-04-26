@@ -4,15 +4,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 from datetime import datetime
 
-from app.database import engine
-from app.routes.chat import router as chat_router
-from app.routes.user import router as user_router
-
 # ------------------ Firebase (SAFE INIT) ------------------
 db = None
 
 try:
-    import firebase_admin
     from firebase_admin import credentials, firestore
 
     try:
@@ -34,6 +29,11 @@ try:
 
 except Exception as e:
     print("Firebase not available:", e)
+
+# ------------------ Import Routes ------------------
+from app.database import engine
+from app.routes.chat import router as chat_router
+from app.routes.user import router as user_router
 
 # ------------------ FastAPI App ------------------
 app = FastAPI()

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { authenticatedFetch } from "../services/authService";
 
 /*Welcome message should specify the user's name */
 /*Code in course completion based on number of trainings*/
@@ -45,7 +46,7 @@ export default function Modules() {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
                 try {
-                    const res = await fetch(`http://localhost:8000/users/${currentUser.uid}`);
+                    const res = await authenticatedFetch(`http://localhost:8000/users/me`);
                     const json = await res.json();
                     setUserData(json.data);
                 } catch (error) {

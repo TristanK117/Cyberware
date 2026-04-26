@@ -1,6 +1,7 @@
 import httpx
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from pydantic import BaseModel
+from app.auth import verify_id_token
 
 router = APIRouter()
 
@@ -10,7 +11,13 @@ class ChatRequest(BaseModel):
 
 
 @router.post("/chat")
-async def chat(req: ChatRequest):
+async def chat(req: ChatRequest, uid: str = Depends(verify_id_token)):
+    """
+    Chat endpoint for phishing/scam detection.
+    
+    Requires: Authorization header with Firebase ID token (Bearer <token>)
+    The user's UID is verified and can be used for logging/tracking if needed.
+    """
     try:
         async with httpx.AsyncClient() as client:
             response = await client.post(
