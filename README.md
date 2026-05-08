@@ -122,7 +122,7 @@ cd ml-service
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-python serve.py
+uvicorn app.main:app --reload
 ```
 
 Ensure the backend is configured to communicate with the ML service endpoint.
