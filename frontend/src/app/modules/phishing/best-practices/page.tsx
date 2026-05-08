@@ -23,8 +23,8 @@ export default function BestPractices(){
                 <div className="best_practices_cards" key={card.id}>
                     <h2 className="number">{card.number}</h2>
                     <div className="best_practices_card_context">
-                    <h2 className="card_header">{card.title}</h2>
-                    <p className="card_body">{card.description}</p>
+                    <h2 className="card_header">{"title" in card ? card.title : card.label}</h2>
+                    <p className="card_body">{"description" in card ? card.description : card.explanation}</p>
                     </div>
                 </div>
                 ))}
