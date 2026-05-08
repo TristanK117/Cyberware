@@ -11,6 +11,10 @@ import { authenticatedFetch } from "../services/authService";
 /*Welcome message should specify the user's name */
 /*Code in course completion based on number of trainings*/
 /*Progression should be based on the user */
+type UserData = {
+  email: string;
+  // add other fields if needed
+};
 
 function PhishingIcon() {
     return(
@@ -40,7 +44,7 @@ function GreenDotIcon(){
 export default function Modules() {
     const progress = 54;
     const currentModule = modules[0];
-    const [userData, setUserData] = useState(null);
+    const [userData, setUserData] = useState<UserData | null>(null);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
