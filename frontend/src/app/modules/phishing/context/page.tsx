@@ -10,10 +10,10 @@ export function ModuleHeader(){
         <div className="module_header">
             <h2>Modules → <b>Phishing Attacks</b></h2>
             <h1>
-                {titleScreen.titleParts.start}
-                <b>{titleScreen.titleParts.highlight}</b>
-                {titleScreen.titleParts.middle}
-                <span>{titleScreen.titleParts.accent}</span>
+                {titleScreen?.titleParts?.start}
+                <b>{titleScreen?.titleParts?.highlight}</b>
+                {titleScreen?.titleParts?.middle}
+                <span>{titleScreen?.titleParts?.accent}</span>
             </h1>
         </div>
     )
