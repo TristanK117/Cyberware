@@ -1,12 +1,17 @@
-from fastapi import APIRouter, HTTPException, Depends, Header
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 from firebase_admin import firestore, auth as firebase_auth
 from datetime import datetime
 from typing import Optional
 from app.auth import verify_id_token
+import firebase_admin
 
 router = APIRouter()
-db = firestore.client()
+
+db = None
+
+if firebase_admin._apps:
+    db = firestore.client()
 
 
 class CreateUserRequest(BaseModel):
