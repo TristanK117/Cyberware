@@ -7,7 +7,8 @@ from typing import Dict, List, Optional
 from dotenv import load_dotenv
 
 # Load environment variables from .env
-load_dotenv()
+if os.path.exists(".env"):
+    load_dotenv()
 
 
 class MLService:

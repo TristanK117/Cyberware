@@ -3,3 +3,7 @@ from app.routes.chat import router
 
 app = FastAPI()
 app.include_router(router)
+
+@app.get("/")
+def health():
+    return {"status": "ml-service running"}
