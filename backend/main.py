@@ -2,6 +2,8 @@ import firebase_admin
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
+import os
+import json
 from datetime import datetime
 
 # ------------------ Firebase (SAFE INIT) ------------------
@@ -10,20 +12,14 @@ db = None
 try:
     from firebase_admin import credentials, firestore
 
-    try:
-        # Try service account (local dev)
-        cred = credentials.Certificate("serviceAccountKey.json")
-        if not firebase_admin._apps:
-            firebase_admin.initialize_app(cred)
-        print("Firebase initialized with service account")
 
-    except Exception as e:
-        print("Service account failed:", e)
-        print("Trying default credentials...")
+if not firebase_admin._apps:
+    firebase_json = os.getenv("FIREBASE_CREDENTIALS")
 
-        if not firebase_admin._apps:
-            firebase_admin.initialize_app()
-        print("Firebase initialized with default credentials")
+    if firebase_json:
+        cred_dict = json.loads(firebase_json)
+        cred = credentials.Certificate(cred_dict)
+        firebase_admin.initialize_app(cred)
 
     db = firestore.client()
 
