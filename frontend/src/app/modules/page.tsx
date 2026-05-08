@@ -40,13 +40,16 @@ function GreenDotIcon(){
 export default function Modules() {
     const progress = 54;
     const currentModule = modules[0];
-    const [userData, setUserData] = useState(null);
-
+    interface UserData {
+    email: string;
+    }
+    
+    const [userData, setUserData] = useState<UserData | null>(null);
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
                 try {
-                    const res = await authenticatedFetch(`http://localhost:8000/users/me`);
+                    const res = await authenticatedFetch(`https://cyberaware-bs4h.onrender.com/users/me`);
                     const json = await res.json();
                     setUserData(json.data);
                 } catch (error) {
