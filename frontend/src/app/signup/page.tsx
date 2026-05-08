@@ -4,7 +4,7 @@ import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useRouter } from "next/navigation";
-import { authenticatedFetch } from "../services/authService";
+import { authenticatedFetch, signInWithGoogle, createUserProfile, checkAndLinkAccount } from "../services/authService";
 import "../login/login.css";
 
 export default function SignupPage() {
@@ -13,6 +13,8 @@ export default function SignupPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [showLinkPrompt, setShowLinkPrompt] = useState(false);
+  const [pendingUser, setPendingUser] = useState(null);
   const router = useRouter();
 
   const handleSignup = async (e: React.FormEvent) => {
@@ -36,11 +38,7 @@ export default function SignupPage() {
         const user = userCredential.user;
 
         // Call backend to create profile with ID token (not UID)
-        const res = await authenticatedFetch("http://localhost:8000/users/create", {
-            method: "POST",
-            body: JSON.stringify({ email: user.email })
-        });
-
+        await createUserProfile(user);
         router.push("/modules");
     } catch (err: any) {
       let errorMessage = "Account creation failed. Please try again.";
@@ -57,6 +55,38 @@ export default function SignupPage() {
 
       setError(errorMessage);
       console.error("Signup error:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleSignup = async () => {
+    setError("");
+    setLoading(true);
+
+    try {
+      const user = await signInWithGoogle();
+      
+      // Check if user already exists in Firestore
+      const response = await authenticatedFetch("http://localhost:8000/users/me",);
+
+      // If user doesn't exist, create profile
+      if (response.status === 404) {
+        await createUserProfile(user);
+      }
+
+      router.push("/modules");
+    } catch (err: any) {
+      let errorMessage = "Google sign-up failed. Please try again.";
+
+      if (err.code === "auth/popup-closed-by-user") {
+        errorMessage = "Sign-up cancelled.";
+      } else if (err.code === "auth/account-exists-with-different-credential") {
+        errorMessage = "An account with this email already exists.";
+      }
+
+      setError(errorMessage);
+      console.error("Google signup error:", err);
     } finally {
       setLoading(false);
     }
@@ -130,13 +160,13 @@ export default function SignupPage() {
           </div>
 
           <div className="social-buttons">
-            <button type="button" className="social-btn">
+            <button type="button" className="social-btn" onClick={handleGoogleSignup} disabled={loading}>
               Sign up With Google
             </button>
-            <button type="button" className="social-btn">
+            <button type="button" className="social-btn" disabled>
               Sign up With Passkey
             </button>
-            <button type="button" className="social-btn">
+            <button type="button" className="social-btn" disabled>
               Sign up With SSO
             </button>
           </div>

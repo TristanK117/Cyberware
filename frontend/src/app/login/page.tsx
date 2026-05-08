@@ -4,6 +4,7 @@ import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useRouter } from "next/navigation";
+import { signInWithGoogle } from "../services/authService";
 import "./login.css";
 
 export default function LoginPage() {
@@ -45,6 +46,32 @@ export default function LoginPage() {
       
       setError(errorMessage);
       console.error("Login error:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    setError("");
+    setLoading(true);
+
+    try {
+      await signInWithGoogle();
+      
+      if (rememberMe) {
+        localStorage.setItem("rememberMe", "true");
+      }
+      
+      router.push("/modules");
+    } catch (err: any) {
+      let errorMessage = "Google login failed. Please try again.";
+
+      if (err.code === "auth/popup-closed-by-user") {
+        errorMessage = "Login cancelled.";
+      }
+
+      setError(errorMessage);
+      console.error("Google login error:", err);
     } finally {
       setLoading(false);
     }
@@ -108,13 +135,13 @@ export default function LoginPage() {
           </div>
 
           <div className="social-buttons">
-            <button type="button" className="social-btn">
+            <button type="button" className="social-btn" onClick={handleGoogleLogin} disabled={loading}>
               Sign in With Google
             </button>
-            <button type="button" className="social-btn">
+            <button type="button" className="social-btn" disabled>
               Sign in With Passkey
             </button>
-            <button type="button" className="social-btn">
+            <button type="button" className="social-btn" disabled>
               Sign in With SSO
             </button>
           </div>
