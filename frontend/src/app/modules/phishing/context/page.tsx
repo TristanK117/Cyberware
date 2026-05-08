@@ -83,7 +83,7 @@ export default function PhishingContext() {
                 <PhishingEmailMockup/>
                 <div className="context_text">
                     <h1>Problem Context</h1>
-                    <p>{contextScreen.context}</p>
+                    <p>{contextScreen?.context}</p>
                     <Link href="/modules/phishing/mcq" className="button">
                         Next
                     </Link>
