@@ -6,14 +6,18 @@ export function ModuleHeader(){
     const titleScreen = phishingModule.screens.find(
         (screen) => screen.id === "title-screen"
       );
+    if (!titleScreen || !titleScreen.titleParts) {
+      return <div>Title screen not found</div>;
+    }
+    const { titleParts } = titleScreen;
     return(
         <div className="module_header">
             <h2>Modules → <b>Phishing Attacks</b></h2>
             <h1>
-                {titleScreen.titleParts.start}
-                <b>{titleScreen.titleParts.highlight}</b>
-                {titleScreen.titleParts.middle}
-                <span>{titleScreen.titleParts.accent}</span>
+                {titleParts.start}
+                <b>{titleParts.highlight}</b>
+                {titleParts.middle}
+                <span>{titleParts.accent}</span>
             </h1>
         </div>
     )
@@ -73,6 +77,9 @@ export default function PhishingContext() {
     const contextScreen = phishingModule.screens.find(
         (screen) => screen.id === "context-screen"
       );
+    if (!contextScreen) {
+      return <div>Context screen not found</div>;
+    }
       const currentStep = 2;
       const totalSteps = 6;
       const progressPercent = (currentStep / totalSteps) * 100;

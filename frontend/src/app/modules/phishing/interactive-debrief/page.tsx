@@ -5,6 +5,13 @@ import phishingModule from "../../../../../module_details/phishing_scams.json";
 import "../../modules.css";
 import Link from "next/link"
 
+type DebriefCard = {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+};
+
 type PhishingEmailMockupProps = {
     selectedClues: string[];
     onClueClick: (id: string) => void;
@@ -103,7 +110,14 @@ export default function InteractiveDebrief() {
     );
   };
 
-  const visibleCards = debriefScreen.cards.filter((card) =>
+  const normalizedCards: DebriefCard[] = debriefScreen.cards.map((card) => ({
+    id: card.id,
+    number: card.number,
+    title: "title" in card ? card.title : card.label,
+    description: "description" in card ? card.description : card.explanation,
+  }));
+
+  const visibleCards = normalizedCards.filter((card) =>
     selectedClues.includes(card.id)
   );
 
@@ -131,8 +145,8 @@ export default function InteractiveDebrief() {
             <div className="debrief_cards" key={card.id}>
               <h2 className="number">{card.number}</h2>
               <div className="debrief_card_context">
-                <h2 className="debrief_header">{card.label}</h2>
-                <p className="debrief_card_body">{card.explanation}</p>
+                <h2 className="debrief_header">{card.title}</h2>
+                <p className="debrief_card_body">{card.description}</p>
               </div>
             </div>
           ))}

@@ -5,6 +5,13 @@ import phishingModule from "../../../../../module_details/phishing_scams.json";
 import "../../modules.css";
 import Link from "next/link"
 
+type Card = {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+};
+
 export default function BestPractices(){
     const bestPracticesScreen = phishingModule.screens.find(
         (screen) => screen.id === "best-practices-screen"
@@ -13,13 +20,20 @@ export default function BestPractices(){
       if (!bestPracticesScreen || !bestPracticesScreen.cards) {
         return <div>Best practices screen not found.</div>;
       }
+    
+    const cards: Card[] = bestPracticesScreen.cards.map((card) => ({
+        id: card.id,
+        number: card.number,
+        title: "title" in card ? card.title : card.label,
+        description: "description" in card ? card.description : card.explanation,
+    }));
 
     return(
         <div>
             <ModuleHeader/>
             <div className="best_practices_body">
                 <h1 className="best_practices_title">{bestPracticesScreen.title}</h1>
-                {bestPracticesScreen.cards.map((card) => (
+                {cards.map((card) => (
                 <div className="best_practices_cards" key={card.id}>
                     <h2 className="number">{card.number}</h2>
                     <div className="best_practices_card_context">

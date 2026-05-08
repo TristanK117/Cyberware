@@ -5,7 +5,11 @@ import Link from "next/link";
 export default function PhishingPage() {
     const titleScreen = phishingModule.screens.find(
         (screen) => screen.id === "title-screen"
-      );
+    );
+    if (!titleScreen || !titleScreen.titleParts) {
+        return <div>Title screen not found</div>;
+    }
+    const { titleParts } = titleScreen;
       const currentStep = 1;
       const totalSteps = 6;
       const progressPercent = (currentStep / totalSteps) * 100;
@@ -14,10 +18,10 @@ export default function PhishingPage() {
             <div className="opening_page">
                 <div className="modules_text">
                     <h1>
-                        {titleScreen.titleParts.start}
-                        <b>{titleScreen.titleParts.highlight}</b>
-                        {titleScreen.titleParts.middle}
-                        <span>{titleScreen.titleParts.accent}</span>
+                        {titleParts.start}
+                        <b>{titleParts.highlight}</b>
+                        {titleParts.middle}
+                        <span>{titleParts.accent}</span>
                     </h1>
 
                     <h2>{titleScreen.subtitle}</h2>
