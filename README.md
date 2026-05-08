@@ -96,7 +96,7 @@ python -m venv venv
 source venv/bin/activate  # Mac/Linux
 venv\Scripts\activate     # Windows
 pip install -r requirements.txt
-uvicorn main:app --reload
+uvicorn main:app --reload --port 8000
 ```
 
 Backend should run on the configured port (e.g., http://localhost:8000).
@@ -122,7 +122,7 @@ cd ml-service
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-uvicorn app.main:app --reload
+uvicorn app.main:app --reload --port 8001
 ```
 
 Ensure the backend is configured to communicate with the ML service endpoint.
