@@ -16,9 +16,9 @@ try:
     firebase_json = os.getenv("FIREBASE_CREDENTIALS")
 
     if firebase_json and not firebase_admin._apps:
-    cred_dict = json.loads(firebase_json)
-    cred = credentials.Certificate(cred_dict)
-    firebase_admin.initialize_app(cred)
+        cred_dict = json.loads(firebase_json)
+        cred = credentials.Certificate(cred_dict)
+        firebase_admin.initialize_app(cred)
 
     db = firestore.client()
 
