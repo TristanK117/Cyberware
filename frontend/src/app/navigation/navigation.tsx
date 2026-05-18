@@ -63,9 +63,9 @@ export function Navbar() {
         <nav className="navbar">
             <Logo/>
             <div className="navigation">
+              <Link className="page_nav" href="/">Home</Link>
               <Link className="page_nav" href="/modules">Modules</Link>
               <Link className="page_nav" href="/chatbot">Chatbot</Link>
-              <Link className="page_nav" href="/about">About</Link>
             </div>
             {user ? (
                 <button onClick={handleLogout} className="login_button">
