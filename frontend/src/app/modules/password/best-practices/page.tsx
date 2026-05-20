@@ -24,7 +24,7 @@ export default function BestPractices(){
     const cards: Card[] = bestPracticesScreen.cards.map((card) => ({
         id: card.id,
         number: card.number,
-        title: "title" in card ? card.title : card.lxabel,
+        title: "title" in card ? card.title : card.label,
         description: "description" in card ? card.description : card.explanation,
     }));
 
